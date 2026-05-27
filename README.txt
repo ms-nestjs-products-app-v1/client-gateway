@@ -7,12 +7,21 @@ CLIENT GATEWAY (Manejo de errores y validación)
         $ cd client-gateway
         $ npm run start         // Run development
         $ npm run start:dev     // Run watch mode
+
+        RUN Services:
+            + Client Gateway
+                $ npm run start:dev
+            + Product MS
+                $ npm run start:dev
+
     
     - Instalar dependencias
         + DotENV (Variables de entorno)
             $ npm i dotenv
         + Joi (Vaidador de Schema)
             $ npm i joi
+        + Crear Microservices
+            $ npm i --save @nestjs/microservices
 
     - Nest CLI
         + Crear un nuevo resource (Sin archivos de test)

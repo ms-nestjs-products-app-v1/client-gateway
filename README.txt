@@ -22,6 +22,9 @@ CLIENT GATEWAY (Manejo de errores y validación)
             $ npm i joi
         + Crear Microservices
             $ npm i --save @nestjs/microservices
+        + Validation (Validacion de la data)
+            $ npm i --save class-validator class-transformer
+
 
     - Nest CLI
         + Crear un nuevo resource (Sin archivos de test)
@@ -44,6 +47,7 @@ CLIENT GATEWAY (Manejo de errores y validación)
                             { }
                 - Get All Products
                     > GET: http://localhost:3000/api/products                                           Click "Send"
+                    > GET: http://localhost:3000/api/products?page=1&limit=10                           Click "Send"
                 - Get Single Product
                     > GET: http://localhost:3000/api/products/{{PRODUCT_ID}}                            Click "Send"
                 - Update Product

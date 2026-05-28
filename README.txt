@@ -31,6 +31,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
             $ nest g res products --no-spec
                 > ? What transport layer do you use? REST API
                 > ? Would you like to generate CRUD entry points? (Y/n) n
+        + Crear un nuevo resource (Sin archivos de test)
+            $ nest g res orders --no-spec
+                > ? What transport layer do you use? REST API
+                > ? Would you like to generate CRUD entry points? (Y/n) y
 
     - Postman
         + Crete a new Workspace (Click "New" | "Workspace" > "Blank workspace")
@@ -61,6 +65,15 @@ CLIENT GATEWAY (Manejo de errores y validación)
                             }
                 - Delete Product
                     > DELETE: http://localhost:3000/api/products/{{PRODUCT_ID}}                         Click "Send"
+            * Order (Click "..." > Add folder > Name: "Order")
+                - Create Order
+                    > POST: http://localhost:3000/api/orders                                            Click "Send"
+                        > Body | raw (JSON)
+                            { }
+                - Get All Orders
+                    > GET: http://localhost:3000/api/orders                                             Click "Send"
+                - Get Single Order
+                    > GET: http://localhost:3000/api/orders/{{ORDER_ID}}                                Click "Send"
 
     - GitHub
         + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")

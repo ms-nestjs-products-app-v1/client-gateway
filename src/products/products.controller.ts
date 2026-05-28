@@ -11,7 +11,7 @@ import {
   Query,
 } from '@nestjs/common';
 import { ClientProxy, RpcException } from '@nestjs/microservices';
-import { firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom } from 'rxjs';
 
 import { PRODUCT_SERVICE } from 'src/config';
 import { PaginationDto } from 'src/common';
@@ -40,15 +40,21 @@ export class ProductsController {
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
     // return this.productsClient.send('find_one_product', { id });
-    try {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-      const product = await firstValueFrom(
-        this.productsClient.send({ cmd: 'find_one_product' }, { id }),
-      );
-      return product;
-    } catch (error) {
-      throw new RpcException(error);
-    }
+    // OPCION #2
+    return this.productsClient.send({ cmd: 'find_one_product' }, { id }).pipe(
+      catchError((err) => {
+        throw new RpcException(err);
+      }),
+    );
+    // OPCION #1
+    // try {
+    //   const product = await firstValueFrom(
+    //     this.productsClient.send({ cmd: 'find_one_product' }, { id }),
+    //   );
+    //   return product;
+    // } catch (error) {
+    //   throw new RpcException(error);
+    // }
   }
 
   @Patch(':id')

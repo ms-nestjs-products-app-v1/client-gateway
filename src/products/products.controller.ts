@@ -15,6 +15,8 @@ import { catchError, firstValueFrom } from 'rxjs';
 
 import { PRODUCT_SERVICE } from 'src/config';
 import { PaginationDto } from 'src/common';
+import { CreateProductDto } from './dto/create-product.dto';
+import { UpdateProductDto } from './dto/update-product.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -24,8 +26,14 @@ export class ProductsController {
   ) {}
 
   @Post()
-  create(@Body() body: any) {
-    return `create product`;
+  create(@Body() createProductDto: CreateProductDto) {
+    return this.productsClient
+      .send({ cmd: 'create_product' }, createProductDto)
+      .pipe(
+        catchError((err) => {
+          throw new RpcException(err);
+        }),
+      );
   }
 
   @Get()
@@ -58,12 +66,25 @@ export class ProductsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: any) {
-    return `update product ${id}`;
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() udpateProductDto: UpdateProductDto,
+  ) {
+    return this.productsClient
+      .send({ cmd: 'update_product' }, { id, ...udpateProductDto })
+      .pipe(
+        catchError((err) => {
+          throw new RpcException(err);
+        }),
+      );
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return `delete product ${id}`;
+  delete(@Param('id', ParseIntPipe) id: number) {
+    return this.productsClient.send({ cmd: 'delete_product' }, { id }).pipe(
+      catchError((err) => {
+        throw new RpcException(err);
+      }),
+    );
   }
 }

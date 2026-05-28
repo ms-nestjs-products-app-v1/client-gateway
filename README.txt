@@ -44,7 +44,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 - Create Product
                     > POST: http://localhost:3000/api/products                                          Click "Send"
                         > Body | raw (JSON)
-                            { }
+                            {
+                                "name": "Dell XPS13",
+                                "price": 900
+                            }
                 - Get All Products
                     > GET: http://localhost:3000/api/products                                           Click "Send"
                     > GET: http://localhost:3000/api/products?page=1&limit=10                           Click "Send"
@@ -53,6 +56,22 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 - Update Product
                     > PATCH: http://localhost:3000/api/products/{{PRODUCT_ID}}                          Click "Send"
                         > Body | raw (JSON)
-                            { }
+                            {
+                                "name": "Dell XPS13 Updated!"
+                            }
                 - Delete Product
                     > DELETE: http://localhost:3000/api/products/{{PRODUCT_ID}}                         Click "Send"
+
+    - GitHub
+        + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")
+            > organization name: {{ORGANIZATION_NAME}}
+            > contact email: {{CONTACT_EMAIL}}
+            > [true] My personal account
+            > [true] I hereby accept Terms of Service....
+            Click "Next" | 
+            Click "Complete setup" | "Skip this step"
+        + Create new repository (Click "New")
+            > {{OWNER_MS_NAME}}/client-gateway
+            > Description: {{REPO_DESCRIPTION}}
+            > Public
+            Click "Create repository"

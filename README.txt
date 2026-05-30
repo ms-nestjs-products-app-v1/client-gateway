@@ -69,7 +69,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 - Create Order
                     > POST: http://localhost:3000/api/orders                                            Click "Send"
                         > Body | raw (JSON)
-                            { }
+                            {
+                                "totalAmount": 100,
+                                "totalItems": 2
+                            }
                 - Get All Orders
                     > GET: http://localhost:3000/api/orders                                             Click "Send"
                 - Get Single Order

@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 
-import { CreateOrderDto } from './dto/create-order.dto';
+import { CreateOrderDto } from './dto';
 import { ORDER_SERVICE } from 'src/config';
 
 @Controller('orders')
@@ -20,7 +20,7 @@ export class OrdersController {
 
   @Post()
   create(@Body() createOrderDto: CreateOrderDto) {
-    return this.orderClient.send('createOrder', {});
+    return this.orderClient.send('createOrder', createOrderDto);
   }
 
   @Get()

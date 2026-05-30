@@ -11,8 +11,9 @@ import {
 import { ClientProxy, RpcException } from '@nestjs/microservices';
 import { firstValueFrom } from 'rxjs';
 
-import { CreateOrderDto, OrderPaginationDto } from './dto';
+import { CreateOrderDto, OrderPaginationDto, StatusDto } from './dto';
 import { ORDER_SERVICE } from 'src/config';
+import { PaginationDto } from 'src/common';
 
 @Controller('orders')
 export class OrdersController {
@@ -40,5 +41,16 @@ export class OrdersController {
     } catch (error) {
       throw new RpcException(error);
     }
+  }
+
+  @Get('filter/:status')
+  findAllByStatus(
+    @Param() statusDto: StatusDto,
+    @Query() paginationDto: PaginationDto,
+  ) {
+    return this.orderClient.send('findAllOrders', {
+      ...paginationDto,
+      status: statusDto.status,
+    });
   }
 }

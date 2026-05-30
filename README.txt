@@ -79,6 +79,9 @@ CLIENT GATEWAY (Manejo de errores y validación)
                     > GET: http:localhost:3000/api/orders?page=1&limit=10&status=CANCELLED              Click "Send"
                 - Get Single Order
                     > GET: http://localhost:3000/api/orders/{{ORDER_ID}}                                Click "Send"
+                - Find All By Status (Filtro alternativo)
+                    > GET: http:localhost:3000/api/orders/filter/CANCELLED                              Click "Send"
+                    > GET: http:localhost:3000/api/orders/filter/CANCELLED&page=1&limit=10              Click "Send"
 
     - GitHub
         + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")

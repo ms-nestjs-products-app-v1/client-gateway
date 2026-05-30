@@ -75,6 +75,8 @@ CLIENT GATEWAY (Manejo de errores y validación)
                             }
                 - Get All Orders
                     > GET: http://localhost:3000/api/orders                                             Click "Send"
+                    > GET: http://localhost:3000/api/orders?page=1&limit=10                             Click "Send"
+                    > GET: http:localhost:3000/api/orders?page=1&limit=10&status=CANCELLED              Click "Send"
                 - Get Single Order
                     > GET: http://localhost:3000/api/orders/{{ORDER_ID}}                                Click "Send"
 

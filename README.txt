@@ -82,6 +82,12 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 - Find All By Status (Filtro alternativo)
                     > GET: http:localhost:3000/api/orders/filter/CANCELLED                              Click "Send"
                     > GET: http:localhost:3000/api/orders/filter/CANCELLED&page=1&limit=10              Click "Send"
+                - Change Status Order
+                    > PATCH: http://localhost:3000/api/orders                                           Click "Send"
+                        > Body | raw (JSON)
+                            {
+                                "status": "DELIVERED",
+                            }
 
     - GitHub
         + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")

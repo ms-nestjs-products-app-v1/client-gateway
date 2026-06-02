@@ -11,9 +11,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
         RUN Services:
             + Client Gateway
                 $ npm run start:dev
-            + Product MS
+            + Products MS
                 $ npm run start:dev
-
+            + Orders MS
+                $ npm run start:dev
     
     - Instalar dependencias
         + DotENV (Variables de entorno)
@@ -70,8 +71,18 @@ CLIENT GATEWAY (Manejo de errores y validación)
                     > POST: http://localhost:3000/api/orders                                            Click "Send"
                         > Body | raw (JSON)
                             {
-                                "totalAmount": 100,
-                                "totalItems": 2
+                                "items": [
+                                    {
+                                        "productId": 1,
+                                        "quantity": 2,
+                                        "price": 100
+                                    },
+                                    {
+                                        "productId": 2,
+                                        "quantity": 3,
+                                        "price": 190
+                                    }
+                                ]
                             }
                 - Get All Orders
                     > GET: http://localhost:3000/api/orders                                             Click "Send"

@@ -16,3 +16,9 @@ NestJS es un framework progresivo para desarrollar aplicaciones backend escalabl
 ### Client Gateway
 
 En NestJS, un Client Gateway normalmente se refiere a un cliente que se conecta y se comunica con un Gatewasy WebSocket o con microservicios. En microservicios, NestJS usa clientes para conectarse a otros servicios.
+
+## NATS
+
+NATS es un sitema de mensajería y comunicación distribuida de alto rendimiento usado para conectar servicios, microservicios y aplicaciones. Su trabajo es actuar como una central de correo ultrarrápido: un servicio envía un mensaje y otro lo recibe sin que ambos necesiten conercarse directamente.
+
+Se usa mucho con NestJS, microservicios y aquitecturas orientadas a eventos.

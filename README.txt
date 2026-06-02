@@ -15,6 +15,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 $ npm run start:dev
             + Orders MS
                 $ npm run start:dev
+
+    - NATS (NATS Transporter)
+        + Nat Server Run (Docker)
+            $ docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats  // Remove port 6222 for clustering
     
     - Instalar dependencias
         + DotENV (Variables de entorno)

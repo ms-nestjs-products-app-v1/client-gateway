@@ -9,6 +9,10 @@ Pasos para levantar el microservicio: `client-gateway`
 3. Instalar las dependencias `npm install`.
 4. Ejecutar en modo development y watch `npm run start:dev`.
 
+NATS Server:
+
+5. Run in docker `docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats`. Open in browser (info reports): `http://localhost:8222/`
+
 ## NestJS
 
 NestJS es un framework progresivo para desarrollar aplicaciones backend escalables usando Node.js y TypeSript.

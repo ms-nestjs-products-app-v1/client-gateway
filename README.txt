@@ -29,7 +29,8 @@ CLIENT GATEWAY (Manejo de errores y validación)
             $ npm i --save @nestjs/microservices
         + Validation (Validacion de la data)
             $ npm i --save class-validator class-transformer
-
+        + NATS (Transporter)
+            $ npm i --save nats
 
     - Nest CLI
         + Crear un nuevo resource (Sin archivos de test)

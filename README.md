@@ -7,11 +7,9 @@ Pasos para levantar el microservicio: `client-gateway`
 1. Clonar el repositorio.
 2. Crear y agregar las variables de entorno en `.env` basado en `.env.example`.
 3. Instalar las dependencias `npm install`.
-4. Ejecutar en modo development y watch `npm run start:dev`.
-
-NATS Server:
-
-5. Run in docker `docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats`. Open in browser (info reports): `http://localhost:8222/`
+4. Ejecutar NATS (Docker) `docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats` y abrir en el browser (info reports): `http://localhost:8222/`.
+5. Ejecutar todos los otros microservices.
+6. Ejecutar en modo development y watch `npm run start:dev`.
 
 ## NestJS
 

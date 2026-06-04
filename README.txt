@@ -15,6 +15,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 $ npm run start:dev
             + Orders MS
                 $ npm run start:dev
+
+    - NATS (NATS Transporter)
+        + Nat Server Run (Docker)
+            $ docker run -d --name nats-server -p 4222:4222 -p 8222:8222 nats  // Remove port 6222 for clustering
     
     - Instalar dependencias
         + DotENV (Variables de entorno)
@@ -25,7 +29,8 @@ CLIENT GATEWAY (Manejo de errores y validación)
             $ npm i --save @nestjs/microservices
         + Validation (Validacion de la data)
             $ npm i --save class-validator class-transformer
-
+        + NATS (Transporter)
+            $ npm i --save nats
 
     - Nest CLI
         + Crear un nuevo resource (Sin archivos de test)
@@ -36,6 +41,8 @@ CLIENT GATEWAY (Manejo de errores y validación)
             $ nest g res orders --no-spec
                 > ? What transport layer do you use? REST API
                 > ? Would you like to generate CRUD entry points? (Y/n) y
+        + Crear un nuevo modulo (Rename folder to 'transports')
+            $ nest g mo nats
 
     - Postman
         + Crete a new Workspace (Click "New" | "Workspace" > "Blank workspace")

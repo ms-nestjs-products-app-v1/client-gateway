@@ -19,6 +19,7 @@ async function bootstrap() {
   );
   // Configurar el custom filter
   app.useGlobalFilters(new RpcCustomExceptionFilter());
+  console.log('Client Gateway - TEST desde el submodule!!!');
   // Port
   await app.listen(envs.port ?? 3000);
   logger.log(`Gateway running on port ${envs.port}`);

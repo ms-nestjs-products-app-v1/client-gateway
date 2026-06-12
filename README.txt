@@ -114,11 +114,18 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 - Create User
                     > POST: http://localhost:3000/api/auth/register                                     Click "Send"
                         > Body | raw (JSON)
-                            { }
+                            {
+                                "name": "Adriano Ayala",
+                                "email": "adriano.ayala@mail.com",
+                                "password": "Secret123@"
+                            }
                 - Login User
                     > POST: http://localhost:3000/api/auth/login                                        Click "Send"
                         > Body | raw (JSON)
-                            { }
+                            {
+                                "email": "adriano.ayala@mail.com",
+                                "password": "Secret123@"
+                            }
                 - Verify Token
                     > GET: http://localhost:3000/api/auth/verify                                        Click "Send"
 

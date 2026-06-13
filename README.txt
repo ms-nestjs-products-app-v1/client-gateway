@@ -128,6 +128,7 @@ CLIENT GATEWAY (Manejo de errores y validación)
                             }
                 - Verify Token
                     > GET: http://localhost:3000/api/auth/verify                                        Click "Send"
+                        > Authorization | Auth Type: Bearer Token
 
     - GitHub
         + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")

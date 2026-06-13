@@ -43,6 +43,10 @@ CLIENT GATEWAY (Manejo de errores y validación)
                 > ? Would you like to generate CRUD entry points? (Y/n) y
         + Crear un nuevo modulo (Rename folder to 'transports')
             $ nest g mo nats
+        + Crear un nuevo resource (Sin archivos de test)
+            $ nest g res auth --no-spec
+                > ? What transport layer do you use? REST API
+                > ? Would you like to generate CRUD entry points? (Y/n) n
 
     - Postman
         + Crete a new Workspace (Click "New" | "Workspace" > "Blank workspace")
@@ -106,6 +110,42 @@ CLIENT GATEWAY (Manejo de errores y validación)
                             {
                                 "status": "DELIVERED",
                             }
+            * Auth (Click "..." > Add folder > Name: "Auth")
+                - Create User
+                    > POST: http://localhost:3000/api/auth/register                                     Click "Send"
+                        > Body | raw (JSON)
+                            {
+                                "name": "Adriano Ayala",
+                                "email": "adriano.ayala@mail.com",
+                                "password": "Secret123@"
+                            }
+                - Login User
+                    > POST: http://localhost:3000/api/auth/login                                        Click "Send"
+                        > Body | raw (JSON)
+                            {
+                                "email": "adriano.ayala@mail.com",
+                                "password": "Secret123@"
+                            }
+                - Verify Token
+                    > GET: http://localhost:3000/api/auth/verify                                        Click "Send"
+                        > Authorization | Auth Type: Bearer Token
+
+    - Insomnia
+        + Generar Token (auto)
+            * Auth
+                - Verify Token
+                    > GET: http://localhost:3000/api/auth/verify                                        Click 'Send'
+                        > Auth > Bearer Token
+                            > TOKEN: CTRL + SPACE and search: ... 'Response -> Body Attribute' and Click "response 'body', ..."
+                                > Edit Tag
+                                    > Function to Perform: Repsonse - reference values from other...
+                                    > Atribure: Body Attribute - value...
+                                    > Request: [Auth] POST Login User
+                                    > Filter (JSONPath or XPath): $.token
+                                    > Trigger Expired - resend the request if...
+                                    > Max age (seconds): 120
+                                    > Live Preview: {{TOKEN_VIEW}}
+                                    Click 'Done'
 
     - GitHub
         + Create new organization (Click "+ v" | "New organization" > Free | Click "Create a free organization")
